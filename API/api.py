@@ -16,7 +16,7 @@ def receiveData():
 # android app needs to send back file in form of {'data': 'base64encodedstring'}
 @app.route('/sendImage', methods=['PUT'])
 def sendImage():
-    imgData['data'] = request.json().to_dict()['data']
+    imgData['data'] = request.json['data']
     return '', 200
 
 
