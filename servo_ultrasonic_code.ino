@@ -1,34 +1,38 @@
-#include <Servo.h>
-Servo my_servo;
+#include <C:\Users\Quinn\Documents\Arduino\ESP32_Servo.h>
+Servo MyServo;
 
-int duration;
-int servo_pos;
+int Duration;
+int ServoPos;
+
+int ServoPin = 18;
+int EchoPin = 21;
+int TrigPin = 19;
 
 void setup() {
-  pinMode(5,OUTPUT);
-  pinMode(6,INPUT);
-  my_servo.attach(3);
+  pinMode(TrigPin,OUTPUT);
+  pinMode(EchoPin,INPUT);
+  MyServo.attach(ServoPin);
   Serial.begin(9600);
 }
 
 void loop() {
-  digitalWrite(5, LOW);
+  digitalWrite(TrigPin, LOW);
   delayMicroseconds(2);
 
-  digitalWrite(5,HIGH);
+  digitalWrite(TrigPin,HIGH);
   delayMicroseconds(10);
 
-  digitalWrite(5,LOW);
+  digitalWrite(TrigPin,LOW);
 
-  duration = pulseIn(6, HIGH)/58;
+  Duration = pulseIn(EchoPin, HIGH)/58;
 
-  servo_pos = map(duration, 0, 131, 0, 360);
+  ServoPos = map(Duration, 0, 131, 0, 360);
 
-  my_servo.write(servo_pos);
+  MyServo.write(ServoPos);
 
-  Serial.print(duration);
+  Serial.print(Duration);
   Serial.println(" cm");
-  Serial.println(servo_pos);
+  Serial.println(ServoPos);
 
   delay(400);
   }
