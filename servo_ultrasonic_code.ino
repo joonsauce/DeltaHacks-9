@@ -50,11 +50,12 @@ void loop() {
 
   ServoPos = map(Duration, 0, 131, 0, 179);
 
+  int x,y;
   if(Serial.available()>0){
-    int x = (Serial.read()-'0');
+    x = Serial.read()-'0';
     x = map(x, 0, 10, 0, 179);
 
-    int y = (Serial.read()-'0');
+    y = Serial.read()-'0';
     y = map(y, 0, 10, 0, 179);
   }
  
@@ -70,9 +71,8 @@ void loop() {
   temperature = (volts - 0.7) * 100;
   //Serial.println(temperature);
   //Serial.println(readAnalogESP(tempPin));
-  display(x, enabled, 0);
-  display(y, enabled, 1);
-  delay(400);
+  display(temperature, enabled, 0);
+  delay(100);
   }
 
 
