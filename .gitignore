@@ -1,3 +1,6 @@
 .vscode/
 API/.idea
 API/__pycache__
+Sensors/debug_custom.json
+Sensors/debug.cfg
+Sensors/esp32.svd
