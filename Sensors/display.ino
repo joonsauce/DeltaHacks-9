@@ -28,12 +28,12 @@ void loop() {
     temperature = (volts - 0.7) * 100;
     Serial.println(temperature);
     Serial.println(readAnalogESP(tempPin));
-    display(temperature, enabled, 1);
+    display(temperature, enabled);
     delay(1000);
 }
 
 
-void display(int temperature, bool enabled, int rV){
+void display(int temperature, bool enabled){
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("Temp:");
